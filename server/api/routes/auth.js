@@ -1,10 +1,8 @@
 import express from "express"
-import Hotel from "../models/Hotel.js"
+import { login, register } from "../controllers/auth.js"
 const router = express.Router()
 
-router.get("/register",(req,res)=>{
-    res.send("this is auth register endpoints")
-})
-
+router.post("/register",register)
+router.post("/login",login)
 
 export default router
