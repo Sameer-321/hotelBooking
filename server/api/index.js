@@ -12,7 +12,7 @@ const app = express();
 dotenv.config();
 
 const connect = async () => {
-  try {
+  try {mongoose
     await mongoose.connect(process.env.MONGO);
     console.log("Connnected to mongoDB");
   } catch (error) {
@@ -22,10 +22,6 @@ const connect = async () => {
 
 mongoose.connection.on("disconnected", () => {
   console.log("mongoDB disconnected");
-});
-
-app.get("/", (req, res) => {
-  res.send("hello first request");
 });
 
 //middelware
